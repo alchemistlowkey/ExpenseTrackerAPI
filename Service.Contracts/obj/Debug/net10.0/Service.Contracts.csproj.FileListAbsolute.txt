@@ -1,0 +1,17 @@
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Service.Contracts.deps.json
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Service.Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Service.Contracts.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Entities.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Shared.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Entities.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/bin/Debug/net10.0/Shared.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.csproj.AssemblyReference.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.AssemblyInfoInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.AssemblyInfo.cs
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.csproj.CoreCompileInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service..DEC3DE55.Up2Date
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/refint/Service.Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/ref/Service.Contracts.dll

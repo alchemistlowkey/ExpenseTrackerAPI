@@ -1,0 +1,17 @@
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Contracts.deps.json
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Contracts.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Entities.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Shared.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Entities.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/bin/Debug/net10.0/Shared.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.csproj.AssemblyReference.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.AssemblyInfoInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.AssemblyInfo.cs
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.csproj.CoreCompileInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.csproj.Up2Date
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/refint/Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/Contracts.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Contracts/obj/Debug/net10.0/ref/Contracts.dll

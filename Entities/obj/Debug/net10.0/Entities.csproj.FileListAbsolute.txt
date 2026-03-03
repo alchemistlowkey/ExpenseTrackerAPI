@@ -1,0 +1,15 @@
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/bin/Debug/net10.0/Entities.deps.json
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/bin/Debug/net10.0/Entities.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/bin/Debug/net10.0/Entities.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/bin/Debug/net10.0/Shared.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/bin/Debug/net10.0/Shared.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.csproj.AssemblyReference.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.GeneratedMSBuildEditorConfig.editorconfig
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.AssemblyInfoInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.AssemblyInfo.cs
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.csproj.CoreCompileInputs.cache
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.csproj.Up2Date
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/refint/Entities.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/Entities.pdb
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Entities/obj/Debug/net10.0/ref/Entities.dll
