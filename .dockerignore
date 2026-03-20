@@ -5,5 +5,6 @@
 .vs/
 appsettings.Development.json
 appsettings.Production.json
+appsettings.json
 *secrets*
 .DS_Store
