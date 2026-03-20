@@ -55,7 +55,13 @@ public static class ServiceExtensions
         var jwtConfiguration = new JwtConfiguration();
         configuration.Bind(jwtConfiguration.Section, jwtConfiguration);
 
-        var secretKey = Environment.GetEnvironmentVariable("SECRETExpense");
+        // Prefer the env var; fall back to appsettings so the app starts without it set
+        var secretKey = Environment.GetEnvironmentVariable("SECRETExpense")
+            ?? configuration["JwtSettings:SecretKey"]
+            ?? throw new InvalidOperationException(
+                "JWT secret key is not configured. " +
+                "Set the 'SECRETExpense' environment variable or add 'JwtSettings:SecretKey' to appsettings.json.");
+
         services.AddAuthentication(opt =>
         {
             opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

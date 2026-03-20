@@ -9,3 +9,4 @@
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Shared/obj/Debug/net10.0/refint/Shared.dll
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Shared/obj/Debug/net10.0/Shared.pdb
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Shared/obj/Debug/net10.0/ref/Shared.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Shared/obj/Debug/net10.0/Shared.sourcelink.json

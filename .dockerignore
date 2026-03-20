@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+appsettings.Development.json
+appsettings.Production.json
+*secrets*
+.DS_Store

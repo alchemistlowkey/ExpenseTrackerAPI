@@ -17,3 +17,4 @@
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Repository/obj/Debug/net10.0/refint/Repository.dll
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Repository/obj/Debug/net10.0/Repository.pdb
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Repository/obj/Debug/net10.0/ref/Repository.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Repository/obj/Debug/net10.0/Repository.sourcelink.json

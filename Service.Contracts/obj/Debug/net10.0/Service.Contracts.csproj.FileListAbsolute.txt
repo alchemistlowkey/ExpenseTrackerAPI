@@ -15,3 +15,4 @@
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/refint/Service.Contracts.dll
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.pdb
 /home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/ref/Service.Contracts.dll
+/home/alchemistlowkey/Desktop/csharp/ExpenseTrackerAPI/Service.Contracts/obj/Debug/net10.0/Service.Contracts.sourcelink.json
