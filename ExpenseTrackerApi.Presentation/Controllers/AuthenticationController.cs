@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Service.Contracts;
 using Shared.DataTransferObjects;
+using Serilog;
 
 namespace ExpenseTrackerApi.Presentation.Controllers
 {
@@ -10,10 +12,12 @@ namespace ExpenseTrackerApi.Presentation.Controllers
     public class AuthenticationController : ControllerBase
     {
         private readonly IServiceManager _service;
+        private readonly ILogger<AuthenticationController> _logger;
 
-        public AuthenticationController(IServiceManager service)
+        public AuthenticationController(IServiceManager service, ILogger<AuthenticationController> logger)
         {
             _service = service;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -22,12 +26,14 @@ namespace ExpenseTrackerApi.Presentation.Controllers
             var result = await _service.AuthenticationService.RegisterUser(userForRegistration);
             if (!result.Succeeded)
             {
+                Log.Error($"Registration failed for user {userForRegistration.Email}");
                 foreach (var error in result.Errors)
                 {
                     ModelState.TryAddModelError(error.Code, error.Description);
                 }
                 return BadRequest(ModelState);
             }
+            Log.Information($"Registration succeeded for user {userForRegistration.Email}");
             return StatusCode(201);
         }
 
@@ -35,8 +41,12 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {
             if (!await _service.AuthenticationService.ValidateUser(user))
+            {
+                Log.Information($"Authentication failed for user {user.UserName}");
                 return Unauthorized();
+            }
             var tokenDto = await _service.AuthenticationService.CreateToken(populateExp: true);
+            Log.Information($"Authentication succeeded for user {user.UserName}");
             return Ok(tokenDto);
         }
     }

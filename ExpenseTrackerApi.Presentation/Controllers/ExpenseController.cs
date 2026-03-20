@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Service.Contracts;
 using Shared.DataTransferObjects;
+using Serilog;
 
 namespace ExpenseTrackerApi.Presentation.Controllers
 {
@@ -12,10 +14,12 @@ namespace ExpenseTrackerApi.Presentation.Controllers
     public class ExpenseController : ControllerBase
     {
         private readonly IServiceManager _service;
+        private readonly ILogger<ExpenseController> _logger;
 
-        public ExpenseController(IServiceManager service)
+        public ExpenseController(IServiceManager service, ILogger<ExpenseController> logger)
         {
             _service = service;
+            _logger = logger;
         }
 
         /// <summary>
@@ -33,7 +37,9 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetExpenses()
         {
+            Log.Information("Fetching all expenses.");
             var expenses = await _service.ExpenseService.GetAllExpensesAsync(trackChanges: false);
+            Log.Information("Successfully retrieved {Count} expense(s).", expenses.Count());
             return Ok(expenses);
         }
 
@@ -53,7 +59,9 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetExpense(Guid id)
         {
+            Log.Information("Fetching expense with id {ExpenseId}.", id);
             var expense = await _service.ExpenseService.GetExpenseAsync(id, trackChanges: false);
+            Log.Information("Successfully retrieved expense with id {ExpenseId}.", id);
             return Ok(expense);
         }
 
@@ -75,7 +83,10 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> CreateExpense([FromBody] ExpenseCreationDto expenseCreation)
         {
+            Log.Information("Creating new expense with amount {Amount} and category {Category}.",
+                expenseCreation.Amount, expenseCreation.Category);
             var expense = await _service.ExpenseService.CreateExpenseAsync(expenseCreation);
+            Log.Information("Successfully created expense with id {ExpenseId}.", expense.Id);
             return CreatedAtRoute("GetExpense", new { id = expense.Id }, expense);
         }
 
@@ -96,7 +107,9 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateExpense(Guid id, [FromBody] ExpenseUpdationDto expenseUpdate)
         {
+            Log.Information("Updating expense with id {ExpenseId}.", id);
             await _service.ExpenseService.UpdateExpenseAsync(id, expenseUpdate, trackChanges: true);
+            Log.Information("Successfully updated expense with id {ExpenseId}.", id);
             return NoContent();
         }
 
@@ -114,7 +127,9 @@ namespace ExpenseTrackerApi.Presentation.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> DeleteExpense(Guid id)
         {
+            Log.Information("Deleting expense with id {ExpenseId}.", id);
             await _service.ExpenseService.DeleteExpenseAsync(id, trackChanges: false);
+            Log.Information("Successfully deleted expense with id {ExpenseId}.", id);
             return NoContent();
         }
     }

@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../ExpenseTrackerApi.Presentation/ExpenseTrackerApi.Presentation.csproj" />
+    <ProjectReference
+      Include="../ExpenseTrackerApi.Presentation/ExpenseTrackerApi.Presentation.csproj" />
     <ProjectReference Include="../Repository/Repository.csproj" />
     <ProjectReference Include="../Service/Service.csproj" />
   </ItemGroup>
