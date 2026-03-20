@@ -35,6 +35,10 @@ public static class ServiceExtensions
         services.AddDbContext<RepositoryContext>(opts =>
         opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
 
+    public static void ConfigureNpSqlContext(this IServiceCollection services, IConfiguration configuration) =>
+        services.AddDbContext<RepositoryContext>(opts =>
+        opts.UseNpgsql(configuration.GetConnectionString("sqlConnection")));
+
     public static void ConfigureIdentity(this IServiceCollection services)
     {
         var builder = services.AddIdentity<User, IdentityRole>(o =>
