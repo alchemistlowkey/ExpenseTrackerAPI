@@ -1,6 +1,20 @@
 # Expense Tracker API
 
-A simple ASP.NET Core Web API for tracking expenses with user authentication.
+[![.NET](https://img.shields.io/badge/.NET-10-orange)](https://dotnet.microsoft.com/) [![ASP.NET](https://img.shields.io/badge/ASP.NET-blueviolet)](https://dotnet.microsoft.com/) [![Docker](https://img.shields.io/badge/Docker-blue)](https://docker.com/) [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-green)](https://postgresql.org/)
+
+**Clean Architecture ASP.NET Core 10 Web API** for personal expense tracking. Features JWT auth, EF Core PostgreSQL, Swagger docs, layered design (Repository/Service patterns).
+
+## 🛠️ Tech Stack
+
+| Category  | Tech                         |
+| --------- | ---------------------------- |
+| Framework | ASP.NET Core 10              |
+| ORM       | EF Core + Npgsql             |
+| DB        | PostgreSQL/SQLite/SQL Server |
+| Auth      | JWT + ASP.NET Identity       |
+| Docs      | Swagger/OpenAPI              |
+| Logging   | Serilog                      |
+| Mapping   | AutoMapper                   |
 
 ## 🧱 Project Structure
 
@@ -19,63 +33,99 @@ Each project targets .NET 10 and uses a shared `ExpenseTrackerApi.slnx` solution
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 🚀 Quick Start
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download)
-- A supported database (SQLite/SQL Server/PostgreSQL) – configured via `appsettings.json`.
+**Prerequisites**:
 
-### Setup
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- PostgreSQL (or SQLite/SQL Server)
+- EF Tools: `dotnet tool install --global dotnet-ef`
 
-1. **Clone the repository**
-   ```bash
-   git clone <repo-url>
-   cd ExpenseTrackerAPI
-   ```
+**1. Setup**
 
-2. **Restore packages**
-   ```bash
-   dotnet restore
-   ```
+```bash
+git clone <repo> && cd ExpenseTrackerAPI
+dotnet restore
+```
 
-3. **Configure database**
+**2. Config** (ExpenseTrackerApi/appsettings.json or env):
 
-   Update the connection string in `ExpenseTrackerApi/appsettings.json` or use environment
-   variables. The default uses LocalDB/SQLite depending on provider configuration in
-   `Program.cs`.
+```
+ConnectionStrings:sqlConnection = "Host=localhost;Database=ExpenseTracker;Username=postgres;Password=pass"
+JwtSettings:SecretKey = "your-32+char-secret" (or SECRETExpense env)
+```
 
-4. **Apply migrations and seed data**
-   ```bash
-   cd ExpenseTrackerApi
-   dotnet ef database update
-   ```
+**3. DB & Run**
 
-5. **Run the application**
-   ```bash
-   dotnet watch run --project ExpenseTrackerApi
-   ```
+```bash
+cd ExpenseTrackerApi
+dotnet ef database update
+dotnet run
+```
 
-   The API will be available at `https://localhost:5001` (or the port shown in output).
+Ports: **HTTPS 5001**, HTTP 5002. Swagger: **/swagger**
+
+**Test Admin**: Register/login via /api/authentication, use Bearer token.
+
+## 🔌 API Endpoints (Bearer Auth for /api/expenses)
+
+| Method | Endpoint              | Desc           |
+| ------ | --------------------- | -------------- |
+| GET    | `/api/expenses`       | List expenses  |
+| GET    | `/api/expenses/{id}`  | Get expense    |
+| POST   | `/api/expenses`       | Create expense |
+| PUT    | `/api/expenses/{id}`  | Update expense |
+| DELETE | `/api/expenses/{id}`  | Delete expense |
+| POST   | `/api/authentication` | Register/login |
+
+**Quick Test**:
+
+```bash
+# Login (get token)
+TOKEN=$(curl -s -X POST http://localhost:5002/api/authentication/login \\
+  -H "Content-Type: application/json" -d '{"email":"test@test.com","password":"Test123456"}' | jq -r .token)
+
+# Get expenses
+curl http://localhost:5002/api/expenses -H "Authorization: Bearer $TOKEN"
+```
 
 ## 📦 Features
 
-- JWT-based authentication & authorization.
-- CRUD operations for expenses linked to users.
-- Expense categories with enum mapping.
-- Clean architecture with layered projects.
+- JWT auth (SECRETExpense env)
+- User-scoped expense CRUD + categories
+- EF migrations (Npgsql/PostgreSQL)
+- Swagger docs + XML comments
+- Serilog logging
 
-## 🛠️ Development Notes
+## 🐳 Docker
 
-- Controllers are located in `ExpenseTrackerApi.Presentation/Controllers`.
-- Services are injected via `ServiceExtensions` in `ExpenseTrackerApi/Extensions`.
-- Entity configurations and migrations are in `ExpenseTrackerApi/Migrations`.
-- Add new services or repositories by extending the interface contracts and registering
-  them in `ServiceExtensions`.
+```bash
+docker build -t expense-tracker .
+docker run -p 5001:5001 -e ConnectionStrings__sqlConnection="your-pg-conn" -e SECRETExpense="your-secret" expense-tracker
+```
 
-## Inspiration
+## 🧪 Testing
 
-This project is based on the [Expense Tracker](https://roadmap.sh/projects/expense-tracker-api) project idea from [roadmap.sh](https://roadmap.sh).
+Add xUnit:
 
+```bash
+dotnet new xunit -n ExpenseTracker.Tests
+dotnet add ExpenseTracker.Tests reference Service Service.Contracts Entities
+dotnet test
+```
 
----
+## 🚀 Deployment
 
-Feel free to explore and extend this API for your own expense tracking needs!
+- **Azure**: `dotnet publish -c Release`
+- Env: DB conn, SECRETExpense, ASPNETCORE_ENVIRONMENT=Production
+- Disable dev CORS/Swagger if needed
+
+## 🤝 Contributing
+
+1. Fork/branch (feat/...)
+2. `dotnet ef migrations add Name`
+3. Test/PR
+
+MIT License.
+
+**Inspired by**: [roadmap.sh Expense Tracker](https://roadmap.sh/expense-tracker-api)
