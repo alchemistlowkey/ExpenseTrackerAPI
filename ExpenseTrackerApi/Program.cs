@@ -39,9 +39,9 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
 app.UseCors("CorsPolicy");
+
+// app.UseHttpsRedirection();
 
 app.UseSwagger();
 
