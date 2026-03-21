@@ -45,7 +45,7 @@ internal sealed class AuthenticationService : IAuthenticationService
         var refreshToken = GenerateRefreshToken();
         _user!.RefreshToken = refreshToken;
         if (populateExp)
-            _user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+            _user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         await _userManager.UpdateAsync(_user);
         var accessToken = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         return new TokenDto(accessToken, refreshToken);
@@ -55,7 +55,7 @@ internal sealed class AuthenticationService : IAuthenticationService
     {
         var principal = GetPrincipalFromExpiredToken(tokenDto.AccessToken);
         var user = await _userManager.FindByNameAsync(principal.Identity!.Name!);
-        if (user == null || user.RefreshToken != tokenDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+        if (user == null || user.RefreshToken != tokenDto.RefreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
         {
             throw new Exception("Invalid client request. The tokenDto has some invalid values.");
         }
@@ -108,7 +108,7 @@ internal sealed class AuthenticationService : IAuthenticationService
             issuer: _jwtConfiguration.ValidIssuer,
             audience: _jwtConfiguration.ValidAudience,
             claims: claims,
-            expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
+            expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
             signingCredentials: signingCredentials
         );
         return tokenOptions;
